@@ -9,7 +9,7 @@ env:
 jobs:
   test:
     env: 
-      MONGODB_CLUSTER_ADDRESS: matsu-website-cluster
+      MONGODB_CLUSTER_ADDRESS: matsu-website-cluster.fh9or.mongodb.net
       MONGODB_USERNAME: matsuchen
       MONGODB_PASSWORD: IsFcjQyzGYyhh1iu
       PORT: 8080
@@ -30,7 +30,8 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+        run: |
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
